@@ -37,14 +37,11 @@ input {
 }
 
 #myform {
-  margin-left:  225px;
-  margin-top: 20px;
+  text-align: center;
   /*border: medium solid purple;*/
 }
 
 h1 {
   text-align: center;
   font-size: 80px;
-  margin-right: 150px;
-  margin-top: 20px;
 }
