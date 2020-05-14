@@ -12,7 +12,7 @@ class Calculator {
   }
 
   delete() {
-
+    this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
 
   appendNumber(number) {
@@ -34,7 +34,7 @@ class Calculator {
     let computation;
     const prev = parseFloat(this.previousOperand); //turn prevOp string into actual number
     const current = parseFloat(this.currentOperand); //turn curOp string into actual number
-    if(isNAN(prev) || isNAN(current)) return; //if nothing in prev or current do not return
+    if(isNaN(prev) || isNaN(current)) return; //if nothing in prev or current do not return
     switch (this.operation) {
       case '+':
         computation = prev + current;
@@ -95,5 +95,10 @@ equalsButton.addEventListener('click', button => { //when I click '=' run comput
 
 allClearButton.addEventListener('click', button => { //when I click '=' run compute and updateDisplay
   calculator.clear();
+  calculator.updateDisplay();
+});
+
+deleteButton.addEventListener('click', button => { //when I click '=' run compute and updateDisplay
+  calculator.delete();
   calculator.updateDisplay();
 });
