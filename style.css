@@ -1,0 +1,57 @@
+*, *::before, *::after { /*select all elements, including all before elements and all after*/
+  box-sizing: border-box;
+  font-weight: normal;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center; /*align whole grid*/
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px); /*four columns at 100px wide*/
+  grid-template-rows: minmax(120, auto) repeat(5, 100px); /* minimum of 120px, max of as large as it needs*/
+}
+
+.calculator-grid > button { /*select all buttons in calcgrid class*/
+  cursor: pointer;
+  font-size: 2rem;/*rem is Relative to font-size of the root element*/
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, .75/*opacity*/)
+}
+
+.calculator-grid > button:hover { /*select buttons w/i calcgrid when hovered on*/
+  background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two {
+  grid-column: span 2; /*span two column widths*/
+}
+
+.output {
+  grid-column: 1/-1; /*fill whole width of grid row*/
+  background-color: rgba(0, 0, 0, .75);
+  display: flex;
+  align-items: flex-end; /*put on right side*/
+  justify-content: space-around; /*put as much space around elements as possible*/
+  flex-direction: column; /*line up vert, instead of horiz*/
+  padding: 10px;
+  word-wrap: break-word; /*break words if they become too long*/
+  word-break: break-all; /*break all words*/
+}
+
+.output .previous-operand {
+  color: rgba(255, 255, 255, .75);
+  font-size: 1.5rem;
+}
+
+.output .current-operand {
+  color: white;
+  font-size: 2.5rem;
+}
