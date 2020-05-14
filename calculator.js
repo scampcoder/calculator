@@ -31,7 +31,29 @@ class Calculator {
   }
 
   compute() {
-
+    let computation;
+    const prev = parseFloat(this.previousOperand); //turn prevOp string into actual number
+    const current = parseFloat(this.currentOperand); //turn curOp string into actual number
+    if(isNAN(prev) || isNAN(current)) return; //if nothing in prev or current do not return
+    switch (this.operation) {
+      case '+':
+        computation = prev + current;
+        break;
+      case '-':
+        computation = prev - current;
+        break;
+      case '&times;':
+        computation = prev * current;
+        break;
+      case '&divide;':
+        computation = prev / current;
+        break;
+      default:
+        return;
+    }
+    this.currentOperand = computation; //set text to our computed num
+    this.operation = undefined; //reset operation
+    this.previousOperand = ''; //clear prevOp
   }
 
   updateDisplay() {
@@ -63,4 +85,10 @@ operationButtons.forEach(button => { //for each button in operand buttons
     calculator.chooseOperation(button.innerText); //run chooseOperation to use on innerText
     calculator.updateDisplay(); //run updateDisplay
   });
+});
+
+
+equalsButton.addEventListener('click', button => { //when I click '=' run compute and updateDisplay
+  calculator.compute();
+  calculator.updateDisplay();
 });
