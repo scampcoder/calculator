@@ -8,26 +8,26 @@
     <title>Calculator</title>
   </head>
   <body>
-    <h1>Basic Calculator</h1>
+    <h1>Do Math!</h1>
     <br/>
-    <form id="myform" Name="calc">
-      <input name="display" id="display"> <br/>  <!--display line-->
-      <input type="button" value="0">
-      <input type="button" value="1">
-      <input type="button" value="2">
-      <input id="plus" type="button" value="+"> <br/>
-      <input type="button" value="3">
-      <input type="button" value="4">
-      <input type="button" value="5">
-      <input id="minus" type="button" value="-"> <br/>
-      <input type="button" value="6">
-      <input type="button" value="7">
-      <input type="button" value="8">
-      <input id="mult" type="button" value="x"> <br/>
-      <input type="button" value="9">
-      <input id="clear"type="button" value="C">
-      <input type="button" value="=">
-      <input id="divide" type="button" value="&#247;"> <!--division symbol-->
-    </form>
+    <div class="calculator-keys">
+      <button class="key--operator" data-action="add">+</button>
+      <button class="key--operator" data-action="subtract">-</button>
+      <button class="key--operator" data-action="multiply">&times;</button>
+      <button class="key--operator" data-action="divide">&divide;</button>
+      <button>7<button>
+      <button>8<button>
+      <button>9<button>
+      <button>4<button>
+      <button>5<button>
+      <button>6<button>
+      <button>1<button>
+      <button>2<button>
+      <button>3<button>
+      <button>0<button>
+      <button data-action="decimal">.</button>
+      <button data-action="clear">C</button>
+      <button class="key--equal" data-action="calculate">=</button>
+    </div>
   </body>
 </html>
