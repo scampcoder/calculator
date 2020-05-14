@@ -16,7 +16,8 @@ class Calculator {
   }
 
   appendNumber(number) {
-
+    if(number === '.' && this.currentOperand.includes('.')) return; //stop from adding mult decimal points
+    this.currentOperand = this.currentOperand.toString() + number.toString(); //append numbers
   }
 
   chooseOperantion(operation) {
@@ -28,7 +29,7 @@ class Calculator {
   }
 
   updateDisplay() {
- 
+    this.currentOperandTextElement.innerText = this.currentOperand;
   }
 }
 
@@ -45,7 +46,7 @@ const calculator = new Calculator(previousOperandTextElement, currentOperandText
 
 numberButtons.forEach(button => { //for each button in buttons
   button.addEventListener('click', () => { //each time a button is clicked
-    calclulator.appendNumber(button.innerText); //append the number to text from HTML button text
+    calculator.appendNumber(button.innerText); //append the number to text from HTML button text
     calculator.updateDisplay(); //run updateDisplay
-  })
-})
+  });
+});
